@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
         a {
             &, &:hover, &:focus, &:active, &:visited, &:-webkit-any-link {
                 text-decoration: none;
-                color: ${props => props.theme.dark} !important;
             }
         }
 

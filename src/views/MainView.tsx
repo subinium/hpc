@@ -5,12 +5,34 @@ import events from '../assets/variable/events'
 import SeeAllEventsButton from '../components/SeeAllEventsButtton'
 import speechBubbleLeft from '../assets/icon/speech_bubble_left.svg'
 import speechBubbleRight from '../assets/icon/speech_bubble_right.svg'
+import logo from '../assets/icon/logo.svg'
+import discord from '../assets/icon/discord.svg'
+import hashed from '../assets/gif/hashed.gif'
+import shoestring from '../assets/gif/shoestring.gif'
+import speechBubbleUp from '../assets/icon/speech_bubble_up.svg'
 
 function MainView () {
     return (
       <StyledMainView>
           <div className="main-view__wrapper--1">
-            <div className="container"></div>
+            <div className="container">
+              <img src={logo} className="logo"/>
+              <div className="hashed-discord-shoestring-wrapper">
+                <img src={hashed} className="hashed"/>
+                <div className="discord-speech-bubble-wrapper">
+                  <img src={discord} className="discord"/>
+                  <div className="discord-speech-bubble-wrapper__text">
+                    
+                    Join HASHED Potato Club's<br></br>
+                    Discord Channel to communicate<br></br>
+                    with Hashed partners
+                    <img src={speechBubbleUp} className="speech-bubble-up" />
+                  </div>
+                  
+                </div>
+                <img src={shoestring} className="shoestring"/>
+              </div>
+            </div>
           </div>
           <div className="main-view__wrapper--2">
             <div className="container">
@@ -48,6 +70,7 @@ function MainView () {
               <div className="events__content">
                 {events.slice(0, 3).map(({ id, image, title, description}) => (
                   <EventCard
+                    key={id}
                     eventId={id}
                     image={image}
                     title={title}
@@ -65,7 +88,67 @@ function MainView () {
     .main-view__wrapper {
       &--1 {
         background-color: #FFF7DA;
-        height: 66.4rem;
+        padding: ${props => props.theme.heightHeader};
+        /* height: 66.4rem; */
+
+        img {
+          &.logo {
+            height: 16.7rem;
+          }
+
+          &.hashed {
+            width: 38.8rem;
+            height: 37rem;
+          }
+
+          &.shoestring {
+            width: 35.1rem;
+            height: 37.6rem;
+          }
+
+          &.discord {
+            width: 10rem;
+            height: 10rem;
+          }
+
+          &.speech-bubble-up {
+            width: 30.3rem;
+            height: 13rem;
+          }
+        }
+
+        .hashed-discord-shoestring-wrapper {
+          display: flex;
+          margin-top: 3.2rem;
+          border: 1px solid blue;
+          justify-content: center;
+
+          .discord-speech-bubble-wrapper {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 3.2rem;
+            
+
+            &__text {
+              text-align: center;
+              font-size: 1.6rem;
+              position: relative;
+              border: 1px solid red;
+              z-index: 9;
+
+              img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                /* z-index: -1; */
+              }
+            }
+          }
+        }
       }
 
       &--2 {

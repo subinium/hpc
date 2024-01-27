@@ -9,6 +9,7 @@ const orange = '#FC8E00'
 
 const widthMobileScreen = '600px'
 const widthContainerMobileScreen = '33.5rem'
+const heightHeader = '9.5rem'
 const heightMobileHeader = '5.6rem'
 
 const color = {
@@ -23,6 +24,7 @@ const color = {
 const size = {
     widthMobileScreen,
     widthContainerMobileScreen,
+    heightHeader,
     heightMobileHeader
 }
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { type FC } from 'react'
 import logoReversed from '../assets/img/logo_reversed.png'
-import discord from '../assets/img/discord.png'
+import discordWhite from '../assets/icon/discord_white.svg'
 import indexFinger from '../assets/icon/index_finger.svg'
 import circularText from '../assets/icon/circular_text.svg'
 
@@ -10,7 +10,7 @@ const Footer: FC = () => (
         <div className="container">
             <div className="footer__img">
                 <img src={logoReversed} className="logo"/>
-                <img src={discord} className="discord"/>
+                <img src={discordWhite} className="discord"/>
             </div>
             <div className="footer__contact">
                 18, 19F, 374, Gangnam-daero Gangnam-gu,<br></br>
@@ -123,6 +123,8 @@ const StyledFooter = styled.div`
                     &.discord {
                         width: 3.7rem;
                         height: 3.7rem;
+                        fill: white;
+                        border: 1px solid white;
                     }
                 }
             }
@@ -140,10 +142,6 @@ const StyledFooter = styled.div`
                 flex-direction: column;
                 align-items: center;
                 gap: 1.2rem;
-
-                a {
-                    /* border-bottom: 1px solid white; */
-                }
             }
 
             &__icon {

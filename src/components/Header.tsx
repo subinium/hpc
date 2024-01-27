@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import logo from '../assets/img/logo.png'
+import logo from '../assets/icon/logo.svg'
 import burger from '../assets/icon/burger.svg'
 import close from '../assets/icon/close.svg'
 import { useState, type FC } from 'react'
@@ -20,8 +20,10 @@ const Header: FC = () => {
             </a>
 
             <div className="header__menu--desktop">
-                {menus.filter(menu => menu.label !== 'Home').map(menu => (
-                    <a href={menu.path}>{menu.label}</a>
+                {menus.filter(menu => menu.label !== 'Home').map((menu, index) => (
+                    <a 
+                        key={index}
+                        href={menu.path}>{menu.label}</a>
                     )
                 )}
             </div>
@@ -75,6 +77,13 @@ const StyledHeader = styled.div`
     position: fixed;
     background-color: white;
     top: 0;
+    z-index: 2;
+
+    a {
+        &, &:hover, &:focus, &:active, &:visited, &:-webkit-any-link {
+            color: ${props => props.theme.dark};
+        }
+    }
 
     .header {
         &__container {
