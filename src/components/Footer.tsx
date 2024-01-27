@@ -123,8 +123,6 @@ const StyledFooter = styled.div`
                     &.discord {
                         width: 3.7rem;
                         height: 3.7rem;
-                        fill: white;
-                        border: 1px solid white;
                     }
                 }
             }

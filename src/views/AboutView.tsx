@@ -147,11 +147,6 @@ const StyledAboutView = styled.div`
     line-height: 2rem;
   }
 
-  .page-title:first-of-type {
-    background-color: ${props => props.theme.yellow};
-    align-self: flex-start;
-  }
-
   .container {
     display: flex;
     flex-direction: column;
@@ -187,6 +182,11 @@ const StyledAboutView = styled.div`
       display: flex;
       flex-direction: column;
       gap: 3.2rem;
+
+      .page-title.about {
+        background-color: ${props => props.theme.yellow};
+        align-self: flex-start;
+      }
     }
 
     &__community {
@@ -206,6 +206,8 @@ const StyledAboutView = styled.div`
           flex-direction: column;
           gap: 1.6rem;
           width: calc(100% - 38rem - 5.6rem);
+          position: relative;
+          z-index: 2;
       }
     }
 
@@ -214,6 +216,8 @@ const StyledAboutView = styled.div`
           display: flex;
           flex-wrap: wrap;
           gap: 2.4rem;
+          position: relative;
+          z-index: 2;
         }
     }
 

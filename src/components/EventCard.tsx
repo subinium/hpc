@@ -59,6 +59,10 @@ const StyledEventCard = styled.div`
             img {
                 border-top-left-radius: 2.5rem;
                 border-bottom-left-radius: 2.5rem;
+
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
         }
 
@@ -127,6 +131,7 @@ const StyledEventCard = styled.div`
             overflow: hidden; */
 
             img {
+                border-radius: 0;
                 /* border-top-left-radius: 2.5rem;
                 border-bottom-left-radius: 2.5rem; */
             }

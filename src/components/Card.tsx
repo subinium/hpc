@@ -29,6 +29,21 @@ const StyledCard = styled.div`
     align-items: center;
     box-sizing: border-box;
     width: calc((100% - 2.4rem) / 2);
+    position: relative;
+    /* z-index: 3; */
+
+    &:after {
+        content: '';
+        height: 4rem;
+        border-bottom-left-radius: 2.5rem;
+        border-bottom-right-radius: 2.5rem;
+        background-color: ${props => props.theme.dark};
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -0.8rem;
+        z-index: -1;
+    }
 
     &:nth-of-type(1), &:nth-of-type(4) {
         background-color: white;
