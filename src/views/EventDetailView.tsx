@@ -270,11 +270,15 @@ const StyledEventDetailView = styled.div`
     }
 
     @media screen and (max-width: ${props => props.theme.widthMobileScreen}) {
+        padding-top: ${props => props.theme.heightMobileHeader};
+        /* padding-top: 0; */
         /* padding-top: 9.2rem;
         display: flex;
         justify-content: center; */
 
         .container {
+            padding-top: 3.2rem;
+            /* border: 2px solid red; */
             /* padding: 8rem 0;
             display: flex;
             flex-direction: column; */
@@ -450,6 +454,7 @@ const StyledEventDetailView = styled.div`
             }
 
             &__other-events {
+                padding-bottom: 2.2rem;
                 /* display: flex;
                 gap: 2.4rem; */
 
