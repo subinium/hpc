@@ -51,9 +51,7 @@ const programs = [
   },
 ]
 
-const AboutView: FC = () => {
-
-  return (
+const AboutView: FC = () => (
       <StyledAboutView>
         <div className="about-view__wrapper--1">
           <div className="container">
@@ -131,8 +129,7 @@ const AboutView: FC = () => {
           </div>
         </div>
       </StyledAboutView>
-  )
-}
+)
 
 const StyledAboutView = styled.div`
   padding-top: 9.2rem;
@@ -208,6 +205,9 @@ const StyledAboutView = styled.div`
           width: calc(100% - 38rem - 5.6rem);
           position: relative;
           z-index: 2;
+          /* border: 1px solid red; */
+          /* overflow: visible; */
+          padding-bottom: 0.8rem;
       }
     }
 
@@ -245,7 +245,6 @@ const StyledAboutView = styled.div`
   }
   
   @media screen and (max-width: ${props => props.theme.widthMobileScreen}) {
-    // padding-top: 0;
     padding-top: ${props => props.theme.heightMobileHeader};
 
     .container {

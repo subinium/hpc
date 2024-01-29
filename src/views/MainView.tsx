@@ -11,6 +11,8 @@ import hashed from '../assets/gif/hashed.gif'
 import shoestring from '../assets/gif/shoestring.gif'
 import speechBubbleUp from '../assets/icon/speech_bubble_up.svg'
 import speechBubbleDown from '../assets/icon/speech_bubble_down.svg'
+import shoestringLaptop from '../assets/icon/shoestring_laptop.svg'
+import hashedHat from '../assets/icon/hashed_hat.svg'
 
 function MainView () {
     return (
@@ -41,32 +43,38 @@ function MainView () {
           </div>
           <div className="main-view__wrapper--2">
             <div className="container">
-              <div className="speech-bubble--left">
-                <img src={speechBubbleLeft} />
-                <div className="speech-bubble__title">
-                  {'Welcome to\nHASHED Potato Club!'}
-                </div>
-                <div className="speech-bubble__content">
-                  Hashed Potato Club is an exclusive social club for Hashed<br></br>
-                  portfolio founders & partners. It aims to build a strong bond<br></br>
-                  between the participants nd ultimately create virtuous<br></br>
-                  synergies.
-                </div>
-              </div>  
-              <div className="speech-bubble--right">
-                  <img src={speechBubbleRight} />
+              <div className="main-view__wrapper--2__shoestring-speech-bubble--left-wrapper">
+                <img src={shoestringLaptop} className="shoestring-laptop"/>
+                <div className="speech-bubble--left">
+                  <img src={speechBubbleLeft} className="speech-bubble-left" />
                   <div className="speech-bubble__title">
-                    <div className="speech-bubble__content__text">
-                      {'Let’s make\nthings happen'}
-                    </div>
+                    {'Welcome to\nHASHED Potato Club!'}
                   </div>
                   <div className="speech-bubble__content">
-                    <img src={speechBubbleRight} />
-                    <div className="speech-bubble__content__text">
-                      Get to know Hashed's partners through various events<br></br>
-                      and create positive synergy at the Hashed Potato Club!
-                    </div>
+                    Hashed Potato Club is an exclusive social club for Hashed<br></br>
+                    portfolio founders & partners. It aims to build a strong bond<br></br>
+                    between the participants nd ultimately create virtuous<br></br>
+                    synergies.
                   </div>
+                </div>  
+              </div>
+              <div className="main-view__wrapper--2__hashed-speech-bubble--right-wrapper">
+                <div className="speech-bubble--right">
+                    <img src={speechBubbleRight} className="speech-bubble-right" />
+                    <div className="speech-bubble__title">
+                      <div className="speech-bubble__content__text">
+                        {'Let’s make\nthings happen'}
+                      </div>
+                    </div>
+                    <div className="speech-bubble__content">
+                      <img src={speechBubbleRight} />
+                      <div className="speech-bubble__content__text">
+                        Get to know Hashed's partners through various events<br></br>
+                        and create positive synergy at the Hashed Potato Club!
+                      </div>
+                    </div>
+                </div>
+                <img src={hashedHat} className="hashed-hat" />
               </div>
               <div className="events__header">
                 <div className="events__header__title page-title">Upcoming Events</div>
@@ -188,20 +196,57 @@ function MainView () {
         align-items: center;
         flex-direction: column;
         gap: 4rem;
+        padding-top: 10rem;
+        padding-bottom: 8.3rem;
+
+        .container {
+          display: flex;
+          flex-direction: column;
+        }
+
+        &__shoestring-speech-bubble--left-wrapper, &__hashed-speech-bubble--right-wrapper {
+          display: flex;
+          /* width: 100%; */
+        }
+
+        &__shoestring-speech-bubble--left-wrapper {
+          img.shoestring-laptop {
+            width: 29rem;
+            height: 30.6rem;
+          }
+        }
+
+        &__hashed-speech-bubble--right-wrapper {
+          padding-left: 21.4rem;
+          margin-top: -7rem;
+          z-index: 2;
+          gap: 2.7rem;
+
+          img.hashed-hat {
+            width: 27.4rem;
+            height: 27rem;
+            margin-top: -3rem;
+          }
+        }
 
         .speech-bubble {
           &--left, &--right {
             color: #191A23;
             position: relative;
-            position: relative;
-            width: 69rem;
+            width: 59rem; // 71.8rem;
+            /* border: 1px solid red; */
 
             img {
               position: absolute;
               top: 0;
               left: 0;
+              right: 0;
+              margin: 0;
+
               z-index: -1;
-              width: 69rem;
+              /* border:  */
+              /* width: 59rem; // 71.8rem; */
+              /* width: 100%; */
             }
           }
 
@@ -317,17 +362,14 @@ function MainView () {
               top: 7.2rem;
             }
           }
-          /* background-color: #FFF7DA;
-          height: 66.4rem; */
+
           .hashed-discord-shoestring-wrapper {
             flex-direction: column;
             margin-top: 1.9rem;
-            /* border: 1px solid red; */
 
             .hashed-shoestring {
               position: static;
               overflow: hidden;
-              /* width: 100%; */
             }
 
             .discord-speech-bubble-wrapper {
@@ -335,17 +377,44 @@ function MainView () {
                 margin-top: 4.5rem;
               }
             }
-
-            /* img. */
           }
         }
 
         &--2 {
           border-top: 2px solid ${props => props.theme.dark};
-          /* display: flex;
-          align-items: center;
-          flex-direction: column;
-          gap: 4rem; */
+          padding-top: 0;
+          padding-bottom: 0;
+
+          &__shoestring-speech-bubble--left-wrapper, &__hashed-speech-bubble--right-wrapper {
+            flex-direction: column;
+            align-items: flex-end;
+          }
+
+          &__shoestring-speech-bubble--left-wrapper {
+            img.shoestring-laptop {
+              order: 2;
+              width: 11.7rem;
+              height: 12.4rem;
+              z-index: 2;
+              margin-top: -8rem;
+              /* transform: rotate(270deg); */
+              /* width: 29rem;
+              height: 30.6rem; */
+              transform: scaleX(-1);
+            }
+          }
+
+          &__hashed-speech-bubble--right-wrapper {
+            padding-left: 0;
+
+            img.hashed-hat {
+              width: 13.8rem;
+              height: 13.5rem;
+              margin-top: -13rem;
+              z-index: 2;
+              margin-right: -1rem;
+            }
+          }
 
           .speech-bubble {
             &--left, &--right {
@@ -392,7 +461,7 @@ function MainView () {
 
             &--right {
               margin-top: 8.4rem;
-              padding: 3.9rem 3.2rem;
+              padding: 3.9rem 3.2rem 7.9rem;
               width: unset;
               height: unset;
               /* padding-top: 3.8rem;
@@ -419,7 +488,8 @@ function MainView () {
 
           .events {
             &__header {
-              margin-top: 12.4rem;
+              /* margin-top: 12.4rem; */
+              margin-top: 8.2rem;
               /* width: ${props => props.theme.widthContainerMobileScreen}; */
               flex-direction: column;
               align-items: flex-end;

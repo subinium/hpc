@@ -87,6 +87,14 @@ const StyledEventsView = styled.div`
         flex-grow: 1;
         max-width: calc((100% - 6rem) / 3);
         height: 46.1rem;
+
+        &__content {
+          width: unset;
+        }
+
+        img {
+          border-bottom-left-radius: 0;
+        }
       }
     }
   }
