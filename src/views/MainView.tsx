@@ -13,11 +13,23 @@ import speechBubbleUp from '../assets/icon/speech_bubble_up.svg'
 import speechBubbleDown from '../assets/icon/speech_bubble_down.svg'
 import shoestringLaptop from '../assets/gif/shoestring_laptop.gif'
 import hashedHat from '../assets/gif/hashed_hat.gif'
+import orbit from '../assets/icon/orbit.svg'
+import star from '../assets/icon/star.svg'
+import circleOrange from '../assets/icon/circle_orange.svg'
+import circleYellow from '../assets/icon/circle_yellow.svg'
+import spikeOrange from '../assets/icon/spike_orange.svg'
+import spikeYellow from '../assets/icon/spike_yellow.svg'
 
 function MainView () {
     return (
       <StyledMainView>
           <div className="main-view__wrapper--1">
+            <img src={orbit} className="orbit left"/>
+            {/* <img src={orbit} className="orbit right"/> */}
+            <img src={circleYellow} className="circle top"/>
+            <img src={circleOrange} className="circle bottom"/>
+            <img src={star} className="star"/>
+            {/* <img src={orbit} className="orbit-right"/> */}
             <div className="container">
               <img src={logo} className="logo desktop"/>
               <img src={logoMobile} className="logo mobile"/>
@@ -74,6 +86,8 @@ function MainView () {
                     </div>
                 </div>
                 <img src={hashedHat} className="hashed-hat" />
+                <img src={spikeOrange} className="spike orange" />
+                <img src={spikeYellow} className="spike yellow" />
               </div>
               <div className="events__header">
                 <div className="events__header__title page-title">Upcoming Events</div>
@@ -103,13 +117,66 @@ function MainView () {
         padding-top: ${props => props.theme.heightHeader};
         display: flex;
         justify-content: center;
-        /* height: 66.4rem; */
+        position: relative;
 
         img {
+          &.star {
+            position: absolute;
+            left: 12rem;
+            bottom: -13rem;
+            z-index: 2;
+            &:hover {
+	            transform: rotate(240deg);
+              transition: 0.3s;
+            }
+          }
+
+          &.circle {
+            position: absolute;
+            z-index: 2;
+            animation: float 2s linear infinite;
+
+            &.top {
+              width: 8rem;
+              height: 8rem;
+              left: -4rem;
+              top: 26rem;
+            }
+
+            &.bottom {
+              width: 2.5rem;
+              height: 2.5rem;
+              bottom: -8rem;
+              left: 20rem;
+            }
+          }
+
+          &.orbit {
+            position: absolute;
+            z-index: 2;
+            animation: float 2s linear infinite;
+            
+            /* width: 39rem; */
+            /* widtH: 5.3rem; */
+            width: 50rem;
+
+            &.left {
+              left: -10rem;
+              top: 33rem;
+            }
+
+            &.right {
+              top: -20rem;
+              right: -10rem;
+              transform: scaleX(-1);
+            }
+          }
+
           &.logo {
             &.desktop {
               height: 16.7rem;
             }
+
             &.mobile {
               display: none;
             }
@@ -130,6 +197,24 @@ function MainView () {
           &.discord {
             width: 10rem;
             height: 10rem;
+            /* border: 1px solid blue; */
+            z-index: 2;
+
+            &:hover {
+              /* border: 1px solid red !important;
+              transform: rotate(360deg); */
+              animation: rotate 0.4s linear; // infinite;
+
+              @keyframes rotate {
+              50% {
+                transform: rotate(180deg);
+              }
+
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+            }
           }
 
           &.speech-bubble-up {
@@ -146,15 +231,11 @@ function MainView () {
         }
 
         .hashed-discord-shoestring-wrapper {
-          /* border: 1px solid red; */
-          /* display: flex; */
           margin-top: 3.2rem;
           position: relative;
           /* justify-content: center; */
           
           .hashed-shoestring {
-            /* width: 100%; */
-            // 213
             display: flex;
             /* justify-content: space-between; */
             justify-content: center;
@@ -177,17 +258,6 @@ function MainView () {
               margin-top: 8.1rem;
               /* border: 1px solid red; */
               z-index: 9;
-
-              /* img {
-                position: absolute; */
-                /* top: 0; */
-                /* top: 13.2rem; */
-                /* left: 0;
-                right: 0;
-                bottom: 0;
-                margin: auto; */
-                /* z-index: -1; */
-              /* } */
             }
           }
         }
@@ -222,11 +292,36 @@ function MainView () {
           margin-top: -7rem;
           z-index: 2;
           gap: 2.7rem;
+          position: relative;
 
-          img.hashed-hat {
-            width: 27.4rem;
-            height: 27rem;
-            margin-top: -3rem;
+          img {
+            &.hashed-hat {
+              width: 27.4rem;
+              height: 27rem;
+              margin-top: -3rem;
+            }
+
+            &.spike {
+              position: absolute;
+              animation: float 2s linear infinite;
+
+              &.orange {
+                width: 15.5rem;
+                height: 15.5rem;
+                top: 8rem;
+                right: 25.4rem;
+
+                z-index: -1;
+              }
+
+              &.yellow {
+                width: 27.3rem;
+                height: 27.3rem;
+                top: -18rem;
+                right: -9rem;
+                z-index: -1;
+              }
+            }
           }
         }
 
@@ -267,6 +362,7 @@ function MainView () {
             padding-bottom: 5.5rem;
             padding-left: 8rem;
             height: 18rem;
+            z-index: 2;
 
             img {
               height: 18rem;
@@ -375,7 +471,6 @@ function MainView () {
               /* position: static; */
               position: absolute;
               /* overflow: hidden; */
-              /* border: 2px solid red; */
               /* gap: 20rem; */
               top: 21.9rem;
               gap: 0;
@@ -510,12 +605,9 @@ function MainView () {
               justify-content: space-between;
               align-items: center;
               margin-bottom: 3.5rem; */
-              /* border: 1px solid red; */
 
               &__title {
-                /* font-size: 3.6rem;
                 font-weight: 700; */
-                /* border: 1px solid red; */
                 width: 100%;
                 font-size: 2.4rem;
                 text-align: center;

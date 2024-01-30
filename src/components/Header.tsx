@@ -75,9 +75,10 @@ const StyledHeader = styled.div`
     max-width: 100vw;
     padding: 3rem 0;
     position: fixed;
-    background-color: white;
+    /* background-color: white; */
+    background-color: ${props => props.theme.yellowLight};
     top: 0;
-    z-index: 2;
+    z-index: 9;
 
     a {
         &, &:hover, &:focus, &:active, &:visited, &:-webkit-any-link {

@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+    @keyframes float {
+      50% {
+        transform: translateY(-2rem);
+      }
+    }
+
     html {
         font-size: 10px;
         font-family: "Space Grotesk";
@@ -25,16 +31,13 @@ const GlobalStyle = createGlobalStyle`
         }
 
         @media screen and (max-width: ${props => props.theme.widthMobileScreen}) {
-        /* html {
-        
-            body { */
-                .container {
-                    width: ${props => props.theme.widthContainerMobileScreen};
+            .container {
+                width: ${props => props.theme.widthContainerMobileScreen};
 
-                    .page-title {
-                        font-size: 2.4rem;
-                    }
-              }
+                .page-title {
+                    font-size: 2.4rem;
+                }
+            }
         }
     }
 }
