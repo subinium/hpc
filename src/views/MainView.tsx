@@ -11,8 +11,8 @@ import hashed from '../assets/gif/hashed.gif'
 import shoestring from '../assets/gif/shoestring.gif'
 import speechBubbleUp from '../assets/icon/speech_bubble_up.svg'
 import speechBubbleDown from '../assets/icon/speech_bubble_down.svg'
-import shoestringLaptop from '../assets/icon/shoestring_laptop.svg'
-import hashedHat from '../assets/icon/hashed_hat.svg'
+import shoestringLaptop from '../assets/gif/shoestring_laptop.gif'
+import hashedHat from '../assets/gif/hashed_hat.gif'
 
 function MainView () {
     return (
@@ -37,7 +37,6 @@ function MainView () {
                   <img src={hashed} className="hashed"/>
                   <img src={shoestring} className="shoestring"/>
                 </div>
-                {/* <img src={shoestring} className="shoestring"/> */}
               </div>
             </div>
           </div>
@@ -117,11 +116,13 @@ function MainView () {
           }
 
           &.hashed {
+            /* border: 1px solid blue; */
             width: 38.8rem;
             height: 37rem;
           }
 
           &.shoestring {
+            /* border: 1px solid blue; */
             width: 35.1rem;
             height: 37.6rem;
           }
@@ -152,22 +153,23 @@ function MainView () {
           /* justify-content: center; */
           
           .hashed-shoestring {
-            width: 100%;
+            /* width: 100%; */
+            // 213
             display: flex;
-            justify-content: space-between;
+            /* justify-content: space-between; */
+            justify-content: center;
+            gap: 21.3rem;
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
+            /* border: 1px solid red; */
           }
 
           .discord-speech-bubble-wrapper {
             display: flex;
             align-items: center;
             flex-direction: column;
-            
-            /* position: relative; */
-            /* position: relative; */
 
             &__text {
               text-align: center;
@@ -196,8 +198,7 @@ function MainView () {
         align-items: center;
         flex-direction: column;
         gap: 4rem;
-        padding-top: 10rem;
-        padding-bottom: 8.3rem;
+        padding: 17.9rem 0 8.3rem;
 
         .container {
           display: flex;
@@ -317,7 +318,7 @@ function MainView () {
     @media screen and (max-width: ${props => props.theme.widthMobileScreen}) {
       .main-view__wrapper {
         &--1 {
-          height: 56.2rem;
+          height: 53rem;
 
           img {
             &.logo {
@@ -333,17 +334,19 @@ function MainView () {
             }
 
             &.hashed {
-              position: absolute;
-              left: 0;
+              /* position: absolute; */
+              /* left: 0; */
               width: 18.5rem;
               height: 17.7rem;
+              margin-right: -1rem;
             }
 
             &.shoestring {
-              position: absolute;
-              right: 0;
+              /* position: absolute; */
+              /* right: 0; */
               width: 17.2rem;
               height: 18.4rem;
+              margin-left: -1rem
             }
 
             &.discord {
@@ -368,8 +371,16 @@ function MainView () {
             margin-top: 1.9rem;
 
             .hashed-shoestring {
-              position: static;
-              overflow: hidden;
+              
+              /* position: static; */
+              position: absolute;
+              /* overflow: hidden; */
+              /* border: 2px solid red; */
+              /* gap: 20rem; */
+              top: 21.9rem;
+              gap: 0;
+              /* display: flex; */
+              align-items: baseline;
             }
 
             .discord-speech-bubble-wrapper {

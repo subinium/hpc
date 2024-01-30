@@ -9,6 +9,7 @@ import cloud from '../assets/icon/cloud.svg'
 import lightBulb from '../assets/icon/light_bulb.svg'
 import magnifier from '../assets/icon/magnifier.svg'
 import Card from '../components/Card'
+import shoestringSunglass from '../assets/icon/shoestring_sunglass.svg'
 
 const communityMotivations = [
   {
@@ -56,9 +57,13 @@ const AboutView: FC = () => (
         <div className="about-view__wrapper--1">
           <div className="container">
             <div className="about-view__about">
-              <div className="page-title about">About</div>
-              <div className="page-title">Introduction to Hashed Potato Club</div>
-              <div className="about-view__about__description">HPC is an exclusive online & offline social community for Hashed portfolio founders, employees, and partners. Its ultimate objective is to build a strong bond and create virtuous synergies between the members. This article will go through on why & how we will run this community, what to expect for the members and how to onboard HPC.</div>
+              <div className="about-view__about__content">
+                <div className="page-title about">About</div>
+                <img src={shoestringSunglass} />
+                <div className="page-title">Introduction to Hashed Potato Club</div>
+                <div className="about-view__about__content__description">HPC is an exclusive online & offline social community for Hashed portfolio founders, employees, and partners. Its ultimate objective is to build a strong bond and create virtuous synergies between the members. This article will go through on why & how we will run this community, what to expect for the members and how to onboard HPC.</div>
+              </div>
+              <img src={shoestringSunglass} />
             </div>
             <div className="about-view__community">
               
@@ -149,10 +154,6 @@ const StyledAboutView = styled.div`
     flex-direction: column;
     gap: 3.2rem;
     padding: 8rem 0;
-
-    .page-title {
-      margin-bottom: 3.2rem;
-    }
   }
 
   .about-view {
@@ -177,13 +178,27 @@ const StyledAboutView = styled.div`
     
     &__about {
       display: flex;
-      flex-direction: column;
-      gap: 3.2rem;
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+
+        img {
+          display: none;
+        }
+      }
 
       .page-title.about {
         background-color: ${props => props.theme.yellow};
         align-self: flex-start;
       }
+
+      img {
+        width: 38.5rem;
+        height: 30.6rem;
+      }
+
     }
 
     &__community {
@@ -222,7 +237,9 @@ const StyledAboutView = styled.div`
     }
 
     &__hpc {
-
+      .page-title {
+        margin-bottom: 3.2rem;
+      }
     }
 
     &__onboard {
@@ -248,15 +265,11 @@ const StyledAboutView = styled.div`
     padding-top: ${props => props.theme.heightMobileHeader};
 
     .container {
-    /* display: flex;
-    flex-direction: column;
-    gap: 3.2rem;
-    padding: 8rem 0; */
-     /* padding: 6rem 0; */
      padding: 3.2rem 0 10rem;
 
       .page-title {
         margin-bottom: 0;
+        
 
         .about {
           text-align: center;
@@ -265,6 +278,7 @@ const StyledAboutView = styled.div`
     }
 
     .page-title:first-of-type {
+      width: 100%;
       text-align: center;
       border-radius: 7px;
       align-self: stretch;
@@ -292,10 +306,25 @@ const StyledAboutView = styled.div`
 
     
     &__about {
-      /* gap: 1.6rem; */
-      /* gap: 0; */
-      /* padding-bottom: 6rem; */
       padding-bottom: 4.4rem;
+      flex-direction: column;
+      align-items: center;
+
+      &__content {
+        /* order: 2; */
+        img {
+          display: block;
+          width: 22.4rem;
+          height: 24rem;
+          align-self: center;
+        /* flex-order: 1; */
+        }
+      }
+
+      & > img {
+        display: none;
+      }
+      
     }
 
     &__community {
