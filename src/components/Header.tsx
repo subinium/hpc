@@ -9,7 +9,7 @@ const Header: FC = () => {
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false)
 
   return (
-    <StyledHeader className="header">
+    <StyledHeader className={`header ${window.location.pathname === '/' ? 'yellow' : ''}`}>
         <div className="header__container container">
             <a 
                 href="/">
@@ -75,9 +75,13 @@ const StyledHeader = styled.div`
     max-width: 100vw;
     padding: 3rem 0;
     position: fixed;
-    background-color: ${props => props.theme.yellowLight};
+    background-color: white;
     top: 0;
     z-index: 9;
+
+    &.yellow {
+        background-color: ${props => props.theme.yellowLight};
+    }
 
     a {
         &, &:hover, &:focus, &:active, &:visited, &:-webkit-any-link {
@@ -156,9 +160,6 @@ const StyledHeader = styled.div`
 
                 &--mobile {
                     display: flex;
-                    position: fixed;
-                    top: 0;
-                    z-index: 9;
 
                     a {
                         /* font-size: 2.1rem;
