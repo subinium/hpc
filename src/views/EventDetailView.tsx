@@ -239,6 +239,10 @@ const StyledEventDetailView = styled.div`
                         align-items: center;
                         gap: 1.2rem;
                     }
+
+                    .calendar {
+                        display: none;
+                    }
                 }      
 
                 button {
@@ -333,8 +337,6 @@ const StyledEventDetailView = styled.div`
                 width: 100%;
                 text-align: center;
                 border-radius: 7px;
-                /* align-self: flex-start;
-                background-color: ${props => props.theme.yellow}; */
             }
         }
 
@@ -375,10 +377,6 @@ const StyledEventDetailView = styled.div`
             }
 
             &__selected-event {
-                /* margin-top: 3.2rem;
-                border: 2px solid ${props => props.theme.dark};
-                border-radius: 2.5rem;
-                overflow: hidden; */
                 
                 &__image {
                     height: 16.8rem;
@@ -387,10 +385,6 @@ const StyledEventDetailView = styled.div`
                 }
 
                 &__rsvp {
-                    /* display: flex;
-                    flex-direction: column;
-                    padding: 3.2rem 4.8rem; */
-
                     &__info-calendar-wrapper {
                         & > div:nth-child(2) {
                             display: none;
@@ -414,7 +408,10 @@ const StyledEventDetailView = styled.div`
                             img {
                                 display: none;
                             }
-                            /* border: 1px solid red; */
+
+                            .calendar {
+                                display: block;
+                            }
                         }
 
                         &__note {
