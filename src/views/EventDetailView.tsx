@@ -11,9 +11,12 @@ import calendar from '../assets/icon/calendar.svg'
 import pin from '../assets/icon/pin.svg'
 import quote from '../assets/icon/quote.svg'
 import Calendar from "../components/Calendar";
+import orbit from '../assets/icon/orbit.svg'
+import circleOrange from '../assets/icon/circle_orange.svg'
+import circleYellow from '../assets/icon/circle_yellow.svg'
+import starBlack from '../assets/icon/star_black.svg'
 
-const EventDetailView: FC = () => {
-    
+const EventDetailView: FC = () => {   
     const { eventId } = useParams()
 
     if (!eventId) {
@@ -30,6 +33,11 @@ const EventDetailView: FC = () => {
 
     return (
         <StyledEventDetailView>
+            <img src={orbit} className="orbit"/>
+            <img src={circleOrange} className="circle orange top"/>
+            <img src={circleOrange} className="circle orange bottom"/>
+            <img src={circleYellow} className="circle yellow"/>
+            <img src={starBlack} className="star black"/>
             <div className="container">
                 <div className="page-title">Events</div>
                 <div className="event-detail-view__selected-event">
@@ -125,6 +133,48 @@ const StyledEventDetailView = styled.div`
     padding-top: 9.2rem;
     display: flex;
     justify-content: center;
+    position: relative;
+
+    & > img {
+        position: absolute;
+        z-index: -1;
+        &.orbit {
+            width: 57.4rem;
+            right: -8rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        &.circle {
+            animation: float 2s ease-in-out infinite;
+            &.yellow {
+                width: 3.1rem;
+                right: 40rem;
+                top: 12rem;
+            }
+            &.orange {
+                &.top {
+                    animation: float 4s ease-in-out infinite;
+                    width: 4.7rem;   
+                    top: 11rem;
+                    right: 46rem;
+                }
+                &.bottom {
+                    width: 7.1rem;
+                    right: 8rem;
+                    top: 49rem;
+                }
+            }
+        }
+
+        &.star {
+            &.black {
+                width: 3.6rem;
+                right: 2rem;
+                top: 49rem;
+                animation: float 2s ease-in-out infinite;
+            }
+        }
+    }
 
     .container {
         padding: 8rem 0;
@@ -271,17 +321,13 @@ const StyledEventDetailView = styled.div`
 
     @media screen and (max-width: ${props => props.theme.widthMobileScreen}) {
         padding-top: ${props => props.theme.heightMobileHeader};
-        /* padding-top: 0; */
-        /* padding-top: 9.2rem;
-        display: flex;
-        justify-content: center; */
+
+        & > img {
+            display: none;
+        }
 
         .container {
             padding-top: 3.2rem;
-            /* border: 2px solid red; */
-            /* padding: 8rem 0;
-            display: flex;
-            flex-direction: column; */
 
             & > .page-title {
                 width: 100%;

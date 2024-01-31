@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { useInViewport } from 'react-in-viewport'
 import EventCard from '../components/EventCard'
 import events from '../assets/variable/events'
 import SeeAllEventsButton from '../components/SeeAllEventsButtton'
@@ -19,22 +20,57 @@ import circleOrange from '../assets/icon/circle_orange.svg'
 import circleYellow from '../assets/icon/circle_yellow.svg'
 import spikeOrange from '../assets/icon/spike_orange.svg'
 import spikeYellow from '../assets/icon/spike_yellow.svg'
+import { useEffect, useRef } from 'react'
+import { useIntersectionObserver } from '@uidotdev/usehooks'
 
 function MainView () {
+
+    // const logoRef = useRef<HTMLElement | null>(null)
+    // const {
+    //   inViewport,
+    // } = useInViewport(logoRef)
+
+    // useEffect(() => {
+    //   console.log('logo in viewport', inViewport)
+    // }, [inViewport])
+
+    const [logoRef, logoEntry] = useIntersectionObserver({
+      threshold: 0,
+      root: null,
+      rootMargin: "0px",
+    });
+
+    const [bubbleLeftRef, bubbleLeftEntry] = useIntersectionObserver({
+      threshold: 0,
+      root: null,
+      rootMargin: "0px",
+    });
+
+
+    const [bubbleRightRef, bubbleRightEntry] = useIntersectionObserver({
+      threshold: 0,
+      root: null,
+      rootMargin: "0px",
+    });
+
+    const [discordSpeechBubbleRef, discordSpeechBubbleEntry] = useIntersectionObserver({
+      threshold: 0,
+      root: null,
+      rootMargin: "0px",
+    });
+
     return (
       <StyledMainView>
           <div className="main-view__wrapper--1">
             <img src={orbit} className="orbit left"/>
-            {/* <img src={orbit} className="orbit right"/> */}
             <img src={circleYellow} className="circle top"/>
             <img src={circleOrange} className="circle bottom"/>
             <img src={star} className="star"/>
-            {/* <img src={orbit} className="orbit-right"/> */}
             <div className="container">
-              <img src={logo} className="logo desktop"/>
+              <img ref={logoRef} src={logo} className="logo desktop"/>
               <img src={logoMobile} className="logo mobile"/>
               <div className="hashed-discord-shoestring-wrapper">
-                <div className="discord-speech-bubble-wrapper">
+                <div ref={discordSpeechBubbleRef} className={`discord-speech-bubble-wrapper ${discordSpeechBubbleEntry?.isIntersecting ? 'in-viewport' : ''}`}>
                   <img src={discord} className="discord"/>
                   <img src={speechBubbleUp} className="speech-bubble-up" />
                   <img src={speechBubbleDown} className="speech-bubble-down" />
@@ -43,7 +79,6 @@ function MainView () {
                     Discord Channel to communicate<br></br>
                     with Hashed partners
                   </div>
-                  
                 </div>
                 <div className="hashed-shoestring">
                   <img src={hashed} className="hashed"/>
@@ -56,7 +91,7 @@ function MainView () {
             <div className="container">
               <div className="main-view__wrapper--2__shoestring-speech-bubble--left-wrapper">
                 <img src={shoestringLaptop} className="shoestring-laptop"/>
-                <div className="speech-bubble--left">
+                <div ref={bubbleLeftRef} className={`speech-bubble--left ${bubbleLeftEntry?.isIntersecting ? 'in-viewport' : ''}`}>
                   <img src={speechBubbleLeft} className="speech-bubble-left" />
                   <div className="speech-bubble__title">
                     {'Welcome to\nHASHED Potato Club!'}
@@ -70,7 +105,7 @@ function MainView () {
                 </div>  
               </div>
               <div className="main-view__wrapper--2__hashed-speech-bubble--right-wrapper">
-                <div className="speech-bubble--right">
+                <div ref={bubbleRightRef} className={`speech-bubble--right ${bubbleRightEntry?.isIntersecting ? 'in-viewport' : ''}`}>
                     <img src={speechBubbleRight} className="speech-bubble-right" />
                     <div className="speech-bubble__title">
                       <div className="speech-bubble__content__text">
@@ -78,7 +113,6 @@ function MainView () {
                       </div>
                     </div>
                     <div className="speech-bubble__content">
-                      <img src={speechBubbleRight} />
                       <div className="speech-bubble__content__text">
                         Get to know Hashed's partners through various events<br></br>
                         and create positive synergy at the Hashed Potato Club!
@@ -155,9 +189,6 @@ function MainView () {
             position: absolute;
             z-index: 2;
             animation: float 2s linear infinite;
-            
-            /* width: 39rem; */
-            /* widtH: 5.3rem; */
             width: 50rem;
 
             &.left {
@@ -183,13 +214,13 @@ function MainView () {
           }
 
           &.hashed {
-            /* border: 1px solid blue; */
+            z-index: 3;
             width: 38.8rem;
             height: 37rem;
           }
 
           &.shoestring {
-            /* border: 1px solid blue; */
+            z-index: 3;
             width: 35.1rem;
             height: 37.6rem;
           }
@@ -197,32 +228,32 @@ function MainView () {
           &.discord {
             width: 10rem;
             height: 10rem;
-            /* border: 1px solid blue; */
+            border-radius: 100%;
+            background-color: ${props => props.theme.yellowLight};
             z-index: 2;
 
             &:hover {
-              /* border: 1px solid red !important;
-              transform: rotate(360deg); */
               animation: rotate 0.4s linear; // infinite;
-
-              @keyframes rotate {
-              50% {
-                transform: rotate(180deg);
-              }
-
-              100% {
-                transform: rotate(360deg);
-              }
-            }
             }
           }
 
           &.speech-bubble-up {
             width: 30.3rem;
             height: 13rem;
-            /* z-index: 1; */
             position: absolute;
             top: 13.2rem;
+            /* animation: speech-bubble-up 2s infinite; */
+            transform-origin: top;
+          }
+
+          @keyframes speech-bubble-up {
+            from {
+              transform: scale(0) translateY(-10rem);
+            }
+
+            to {
+              transform: scale(1) translateY(0);
+            }
           }
 
           &.speech-bubble-down {
@@ -233,18 +264,15 @@ function MainView () {
         .hashed-discord-shoestring-wrapper {
           margin-top: 3.2rem;
           position: relative;
-          /* justify-content: center; */
           
           .hashed-shoestring {
             display: flex;
-            /* justify-content: space-between; */
             justify-content: center;
             gap: 21.3rem;
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            /* border: 1px solid red; */
           }
 
           .discord-speech-bubble-wrapper {
@@ -256,8 +284,17 @@ function MainView () {
               text-align: center;
               font-size: 1.6rem;
               margin-top: 8.1rem;
-              /* border: 1px solid red; */
               z-index: 9;
+            }
+
+            &.in-viewport {
+              .discord-speech-bubble-wrapper__text {
+                animation: fade-in 2.4s;
+              }
+
+              img.speech-bubble-up {
+                animation: speech-bubble-up 2s;
+              }
             }
           }
         }
@@ -277,7 +314,6 @@ function MainView () {
 
         &__shoestring-speech-bubble--left-wrapper, &__hashed-speech-bubble--right-wrapper {
           display: flex;
-          /* width: 100%; */
         }
 
         &__shoestring-speech-bubble--left-wrapper {
@@ -312,6 +348,7 @@ function MainView () {
                 right: 25.4rem;
 
                 z-index: -1;
+                
               }
 
               &.yellow {
@@ -329,8 +366,7 @@ function MainView () {
           &--left, &--right {
             color: #191A23;
             position: relative;
-            width: 59rem; // 71.8rem;
-            /* border: 1px solid red; */
+            width: 59rem;
 
             img {
               position: absolute;
@@ -338,11 +374,7 @@ function MainView () {
               left: 0;
               right: 0;
               margin: 0;
-
               z-index: -1;
-              /* border:  */
-              /* width: 59rem; // 71.8rem; */
-              /* width: 100%; */
             }
           }
 
@@ -355,6 +387,26 @@ function MainView () {
             img {
               height: 20rem;
             }
+
+            &.in-viewport {
+              img.speech-bubble-left {
+                animation: grow 2s;
+              }
+
+              & > div {
+                animation: fade-in 3s;
+              }
+            }
+          }
+
+          @keyframes grow {
+            from {
+              transform: scale(1, 0.1);
+            }
+
+            to {
+              transform: scale(1, 1);
+            }
           }
 
           &--right {
@@ -364,8 +416,18 @@ function MainView () {
             height: 18rem;
             z-index: 2;
 
-            img {
+            img.speech-bubble-right {
               height: 18rem;
+            }
+
+            &.in-viewport {
+              img.speech-bubble-right {
+                animation: grow 2s;
+              }
+
+              .speech-bubble__content__text {
+                animation: fade-in 2.4s;
+              }
             }
           }
 
@@ -401,10 +463,17 @@ function MainView () {
             flex-direction: column;
             gap: 2.4rem;
             margin-bottom: 8rem;
+            /* border: 1px solid blue; */
 
             .event-card {
               width: 100%;
               height: 29rem;
+            }
+
+            &.in-viewport {
+              .event-card {
+                animation: fade-in 2.4s, go-up 2.4s;
+              }
             }
           }
         }
@@ -417,29 +486,43 @@ function MainView () {
           height: 53rem;
 
           img {
+            &.star {
+              width: 2.4rem;
+              bottom: 1rem;
+              left: 2rem;
+            }
+
             &.logo {
               &.desktop {
                 display: none;
               }
               &.mobile {
                 display: block;
-                /* width: 28rem; */
                 width: 100%;
                 height: 13.3rem;
               }
             }
 
+            &.circle {
+                display: none;
+                
+            }
+
+            &.orbit {
+              width: 30rem;
+
+              &.left {
+                top: 44rem;
+              }
+            }
+
             &.hashed {
-              /* position: absolute; */
-              /* left: 0; */
               width: 18.5rem;
               height: 17.7rem;
               margin-right: -1rem;
             }
 
             &.shoestring {
-              /* position: absolute; */
-              /* right: 0; */
               width: 17.2rem;
               height: 18.4rem;
               margin-left: -1rem
@@ -467,14 +550,9 @@ function MainView () {
             margin-top: 1.9rem;
 
             .hashed-shoestring {
-              
-              /* position: static; */
               position: absolute;
-              /* overflow: hidden; */
-              /* gap: 20rem; */
               top: 21.9rem;
               gap: 0;
-              /* display: flex; */
               align-items: baseline;
             }
 
@@ -503,9 +581,6 @@ function MainView () {
               height: 12.4rem;
               z-index: 2;
               margin-top: -8rem;
-              /* transform: rotate(270deg); */
-              /* width: 29rem;
-              height: 30.6rem; */
               transform: scaleX(-1);
             }
           }
@@ -513,12 +588,29 @@ function MainView () {
           &__hashed-speech-bubble--right-wrapper {
             padding-left: 0;
 
-            img.hashed-hat {
-              width: 13.8rem;
-              height: 13.5rem;
-              margin-top: -13rem;
-              z-index: 2;
-              margin-right: -1rem;
+            img {
+              &.hashed-hat {
+                width: 13.8rem;
+                height: 13.5rem;
+                margin-top: -13rem;
+                z-index: 2;
+                margin-right: -1rem;
+              }
+
+              &.spike {
+                &.yellow {
+                  width: 20rem;
+                  top: 16rem;
+                }
+
+                &.orange {
+                  z-index: 2;
+                  width: 7rem;
+                  right: 0;
+                  left: -2rem;
+                  top: 25rem;
+                }
+              }
             }
           }
 
@@ -570,6 +662,7 @@ function MainView () {
               padding: 3.9rem 3.2rem 7.9rem;
               width: unset;
               height: unset;
+              z-index: unset;
               /* padding-top: 3.8rem;
               padding-bottom: 5.5rem;
               padding-left: 8rem;
@@ -594,20 +687,13 @@ function MainView () {
 
           .events {
             &__header {
-              /* margin-top: 12.4rem; */
               margin-top: 8.2rem;
-              /* width: ${props => props.theme.widthContainerMobileScreen}; */
               flex-direction: column;
               align-items: flex-end;
               gap: 1.6rem;
-              /* width: 100%;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-bottom: 3.5rem; */
 
               &__title {
-                font-weight: 700; */
+                font-weight: 700;
                 width: 100%;
                 font-size: 2.4rem;
                 text-align: center;
