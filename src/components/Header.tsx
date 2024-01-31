@@ -156,10 +156,9 @@ const StyledHeader = styled.div`
 
                 &--mobile {
                     display: flex;
-                    /* display: flex; */
-                                    /* display: flex;
-                justify-content: space-between;
-                gap: 6rem; */
+                    position: fixed;
+                    top: 0;
+                    z-index: 9;
 
                     a {
                         /* font-size: 2.1rem;
