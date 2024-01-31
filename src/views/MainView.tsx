@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { useInViewport } from 'react-in-viewport'
 import EventCard from '../components/EventCard'
 import events from '../assets/variable/events'
 import SeeAllEventsButton from '../components/SeeAllEventsButtton'
@@ -20,21 +19,10 @@ import circleOrange from '../assets/icon/circle_orange.svg'
 import circleYellow from '../assets/icon/circle_yellow.svg'
 import spikeOrange from '../assets/icon/spike_orange.svg'
 import spikeYellow from '../assets/icon/spike_yellow.svg'
-import { useEffect, useRef } from 'react'
 import { useIntersectionObserver } from '@uidotdev/usehooks'
 
 function MainView () {
-
-    // const logoRef = useRef<HTMLElement | null>(null)
-    // const {
-    //   inViewport,
-    // } = useInViewport(logoRef)
-
-    // useEffect(() => {
-    //   console.log('logo in viewport', inViewport)
-    // }, [inViewport])
-
-    const [logoRef, logoEntry] = useIntersectionObserver({
+    const [logoRef] = useIntersectionObserver({
       threshold: 0,
       root: null,
       rootMargin: "0px",
