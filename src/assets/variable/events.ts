@@ -10,78 +10,24 @@ type Event = {
 }
 
 const events: Event[] = [
-    {
-      id: 1,
-      image: hashedPotatoClubFounderNight,
-      title: 'Hashed Potato Club Founders Night',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 2,
-      image: kbwAmuseBouche,
-      title: 'KBW Amuse Bouche',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 3,
-      image: nearSeoul2023,
-      title: 'NEAR Seoul VIP Night',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 4,
-      image: hashedPotatoClubFounderNight,
-      title: 'Hashed Potato Club Founders Night',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 5,
-      image: kbwAmuseBouche,
-      title: 'KBW Amuse Bouche',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 6,
-      image: nearSeoul2023,
-      title: 'NEAR Seoul VIP Night',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 7,
-      image: hashedPotatoClubFounderNight,
-      title: 'Hashed Potato Club Founders Night',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 8,
-      image: kbwAmuseBouche,
-      title: 'KBW Amuse Bouche',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 9,
-      image: nearSeoul2023,
-      title: 'NEAR Seoul VIP Night',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 10,
-      image: hashedPotatoClubFounderNight,
-      title: 'Hashed Potato Club Founders Night',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 11,
-      image: kbwAmuseBouche,
-      title: 'KBW Amuse Bouche',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    },
-    {
-      id: 12,
-      image: nearSeoul2023,
-      title: 'NEAR Seoul VIP Night',
-      description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
-    }
-  ]
+  {
+    id: 1,
+    image: hashedPotatoClubFounderNight,
+    title: 'Hashed Potato Club Founders Night',
+    description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
+  },
+  {
+    id: 2,
+    image: kbwAmuseBouche,
+    title: 'KBW Amuse Bouche',
+    description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
+  },
+  {
+    id: 3,
+    image: nearSeoul2023,
+    title: 'NEAR Seoul VIP Night',
+    description: 'Date : September 5, 2023 ~ August 5,\n2023\nLocation: Only for Hashed Potato\nClub Members'
+  }
+]
 
-  export default events
+export default events
