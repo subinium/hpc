@@ -13,7 +13,7 @@ const Footer: FC = () => (
                 <img src={discordWhite} className="discord"/>
             </div>
             <div className="footer__contact">
-                18, 19F, 374, Gangnam-daero Gangnam-gu,<br></br>
+                20F, 374, Gangnam-daero Gangnam-gu,<br></br>
                 SEOUL Republic of Korea<br></br>
                 contact@hashed.com
             </div>
