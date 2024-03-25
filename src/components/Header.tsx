@@ -215,11 +215,11 @@ const menus = [
     {
         path: '/about',
         label: 'About',
-    },
-    {
-        path: '/login',
-        label: 'Login',
     }
+    // {
+    //     path: '/login',
+    //     label: 'Login',
+    // }
 ]
 
 export default Header
