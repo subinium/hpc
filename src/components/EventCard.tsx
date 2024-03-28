@@ -11,7 +11,7 @@ type EventCardProps = {
 }
 
 const EventCard: FC<EventCardProps> = ({ eventId, image, title, description, vertical }: EventCardProps) => (
-    <StyledEventCard 
+    <StyledEventCard
         className={`event-card ${(vertical && 'vertical') ?? ''}`}
     >
         <div className="event-card__image">

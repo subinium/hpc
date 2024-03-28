@@ -16,28 +16,28 @@ import circleOrange from '../assets/icon/circle_orange.svg'
 import circleYellow from '../assets/icon/circle_yellow.svg'
 import starBlack from '../assets/icon/star_black.svg'
 
-const EventDetailView: FC = () => {   
+const EventDetailView: FC = () => {
     const { eventId } = useParams()
 
     if (!eventId) {
         window.location.href = '/events'
         return <EventsView />
-    } 
+    }
 
     const selectedEvent = events.find(event => event.id === parseInt(eventId))
 
     if (!selectedEvent) {
         window.location.href = '/events'
         return <EventsView />
-    } 
+    }
 
     return (
         <StyledEventDetailView>
-            <img src={orbit} className="orbit"/>
-            <img src={circleOrange} className="circle orange top"/>
-            <img src={circleOrange} className="circle orange bottom"/>
-            <img src={circleYellow} className="circle yellow"/>
-            <img src={starBlack} className="star black"/>
+            <img src={orbit} className="orbit" />
+            <img src={circleOrange} className="circle orange top" />
+            <img src={circleOrange} className="circle orange bottom" />
+            <img src={circleYellow} className="circle yellow" />
+            <img src={starBlack} className="star black" />
             <div className="container">
                 <div className="page-title">Events</div>
                 <div className="event-detail-view__selected-event">
@@ -53,29 +53,30 @@ const EventDetailView: FC = () => {
                                 <div className="event-detail-view__selected-event__rsvp__description">
                                     <div className="event-detail-view__selected-event__rsvp__description__date">
                                         <img src={calendar} />
-                                        <Calendar 
+                                        <Calendar
                                             month='9'
                                             date='05'
                                         />
-                                        <div>September 5, 2023 ~ August 5, 2023</div>
+                                        <div>{selectedEvent.start_date} ~ {selectedEvent.end_date}</div>
                                     </div>
                                     <div className="event-detail-view__selected-event__rsvp__description__note">
                                         <div className="event-detail-view__selected-event__rsvp__description__note__image-container">
                                             <img src={pin} />
                                         </div>
-                                        <div>Only for Hashed Potato Club Members</div>
+                                        <div>{selectedEvent.location}</div>
                                     </div>
                                 </div>
                             </div>
-                            <Calendar 
+                            {/* <Calendar
                                 month='9'
                                 date='05'
-                            />
+                            /> */}
                         </div>
-                        <Button 
+                        <Button
                             onClick={
-                                () => { console.log('RSVP') 
-                            }}
+                                () => {
+                                    window.open(selectedEvent.url, '_blank', 'noopener,noreferrer');
+                                }}
                         >
                             RSVP
                         </Button>
@@ -85,7 +86,8 @@ const EventDetailView: FC = () => {
                     <div className="event-detail-view__selected-event__description">
                         <div className="event-detail-view__selected-event__description__header">Description</div>
                         <div className="event-detail-view__selected-event__description__content">
-                        Factomind, a market specialist providing data-driven growth strategies to the Web3 builders, is hosting a brunch event for KBW participants! KBW Amuse-Bouche serves as an appetizer to KBW, a delightful prelude to the main event. Enjoy a variety of food and drinks while networking with builders, founders, investors, and Web3 enthusiasts. It would strike a much lighter note, so come casually.
+                            {selectedEvent.detail}
+                            {/* Factomind, a market specialist providing data-driven growth strategies to the Web3 builders, is hosting a brunch event for KBW participants! KBW Amuse-Bouche serves as an appetizer to KBW, a delightful prelude to the main event. Enjoy a variety of food and drinks while networking with builders, founders, investors, and Web3 enthusiasts. It would strike a much lighter note, so come casually. */}
                         </div>
                     </div>
                     <div className="event-detail-view__selected-event__details">
@@ -93,17 +95,17 @@ const EventDetailView: FC = () => {
                             Details
                         </div>
                         <div className="event-detail-view__selected-event__details__content">
-                            <div>
+                            {/* <div>
                                 <img src={calendar} />
-                                <div>Sep 4, 10AM - 12PM</div>
-                            </div>
+                                <div>{selectedEvent.start_date}</div>
+                            </div> */}
                             <div>
                                 <img src={quote} />
-                                <div>Networking Event</div>
+                                <div>{selectedEvent.event_type}</div>
                             </div>
                             <div>
                                 <img src={pin} />
-                                <div>3F, Milim Tower 14 Teheran-ro 4gil, Gangnam-gu, Seoul</div>
+                                <div>{selectedEvent.location}</div>
                             </div>
                         </div>
                     </div>
@@ -524,6 +526,6 @@ const StyledEventDetailView = styled.div`
         }
 
     }
-` 
+`
 
 export default EventDetailView

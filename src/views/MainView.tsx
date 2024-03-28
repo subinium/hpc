@@ -6,7 +6,8 @@ import speechBubbleLeft from '../assets/icon/speech_bubble_left.svg'
 import speechBubbleRight from '../assets/icon/speech_bubble_right.svg'
 import logo from '../assets/icon/logo.svg'
 import logoMobile from '../assets/icon/logo_mobile.svg'
-import discord from '../assets/icon/discord.svg'
+// import discord from '../assets/icon/discord.svg'
+import medium from '../assets/icon/medium.svg'
 import hashed from '../assets/gif/hashed.gif'
 import shoestring from '../assets/gif/shoestring.gif'
 import speechBubbleUp from '../assets/icon/speech_bubble_up.svg'
@@ -21,118 +22,117 @@ import spikeOrange from '../assets/icon/spike_orange.svg'
 import spikeYellow from '../assets/icon/spike_yellow.svg'
 import { useIntersectionObserver } from '@uidotdev/usehooks'
 
-function MainView () {
-    const [logoRef] = useIntersectionObserver({
-      threshold: 0,
-      root: null,
-      rootMargin: "0px",
-    });
+function MainView() {
+  const [logoRef] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: "0px",
+  });
 
-    const [bubbleLeftRef, bubbleLeftEntry] = useIntersectionObserver({
-      threshold: 0,
-      root: null,
-      rootMargin: "0px",
-    });
+  const [bubbleLeftRef, bubbleLeftEntry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: "0px",
+  });
 
 
-    const [bubbleRightRef, bubbleRightEntry] = useIntersectionObserver({
-      threshold: 0,
-      root: null,
-      rootMargin: "0px",
-    });
+  const [bubbleRightRef, bubbleRightEntry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: "0px",
+  });
 
-    const [discordSpeechBubbleRef, discordSpeechBubbleEntry] = useIntersectionObserver({
-      threshold: 0,
-      root: null,
-      rootMargin: "0px",
-    });
+  const [discordSpeechBubbleRef, discordSpeechBubbleEntry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: "0px",
+  });
 
-    return (
-      <StyledMainView>
-          <div className="main-view__wrapper--1">
-            <img src={orbit} className="orbit left"/>
-            <img src={circleYellow} className="circle top"/>
-            <img src={circleOrange} className="circle bottom"/>
-            <img src={star} className="star"/>
-            <div className="container">
-              <img ref={logoRef} src={logo} className="logo desktop"/>
-              <img src={logoMobile} className="logo mobile"/>
-              <div className="hashed-discord-shoestring-wrapper">
-                <div ref={discordSpeechBubbleRef} className={`discord-speech-bubble-wrapper ${discordSpeechBubbleEntry?.isIntersecting ? 'in-viewport' : ''}`}>
-                  <img src={discord} className="discord"/>
-                  <img src={speechBubbleUp} className="speech-bubble-up" />
-                  <img src={speechBubbleDown} className="speech-bubble-down" />
-                  <div className="discord-speech-bubble-wrapper__text">
-                    Join HASHED Potato Club's<br></br>
-                    Discord Channel to communicate<br></br>
-                    with Hashed partners
-                  </div>
-                </div>
-                <div className="hashed-shoestring">
-                  <img src={hashed} className="hashed"/>
-                  <img src={shoestring} className="shoestring"/>
-                </div>
+  return (
+    <StyledMainView>
+      <div className="main-view__wrapper--1">
+        <img src={orbit} className="orbit left" />
+        <img src={circleYellow} className="circle top" />
+        <img src={circleOrange} className="circle bottom" />
+        <img src={star} className="star" />
+        <div className="container">
+          <img ref={logoRef} src={logo} className="logo desktop" />
+          <img src={logoMobile} className="logo mobile" />
+          <div className="hashed-discord-shoestring-wrapper">
+            <div ref={discordSpeechBubbleRef} className={`discord-speech-bubble-wrapper ${discordSpeechBubbleEntry?.isIntersecting ? 'in-viewport' : ''}`}>
+              <img src={medium} className="discord" />
+              <img src={speechBubbleUp} className="speech-bubble-up" />
+              <img src={speechBubbleDown} className="speech-bubble-down" />
+              <div className="discord-speech-bubble-wrapper__text">
+                Explore Hashed's Medium channel <br></br>
+                for a variety of Thesis & Research<br></br>
+              </div>
+            </div>
+            <div className="hashed-shoestring">
+              <img src={hashed} className="hashed" />
+              <img src={shoestring} className="shoestring" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="main-view__wrapper--2">
+        <div className="container">
+          <div className="main-view__wrapper--2__shoestring-speech-bubble--left-wrapper">
+            <img src={shoestringLaptop} className="shoestring-laptop" />
+            <div ref={bubbleLeftRef} className={`speech-bubble--left ${bubbleLeftEntry?.isIntersecting ? 'in-viewport' : ''}`}>
+              <img src={speechBubbleLeft} className="speech-bubble-left" />
+              <div className="speech-bubble__title">
+                {'Welcome to\nHASHED Potato Club!'}
+              </div>
+              <div className="speech-bubble__content">
+                Hashed Potato Club is an exclusive social club for Hashed<br></br>
+                portfolio founders & partners. It aims to build a strong bond<br></br>
+                between the participants nd ultimately create virtuous<br></br>
+                synergies.
               </div>
             </div>
           </div>
-          <div className="main-view__wrapper--2">
-            <div className="container">
-              <div className="main-view__wrapper--2__shoestring-speech-bubble--left-wrapper">
-                <img src={shoestringLaptop} className="shoestring-laptop"/>
-                <div ref={bubbleLeftRef} className={`speech-bubble--left ${bubbleLeftEntry?.isIntersecting ? 'in-viewport' : ''}`}>
-                  <img src={speechBubbleLeft} className="speech-bubble-left" />
-                  <div className="speech-bubble__title">
-                    {'Welcome to\nHASHED Potato Club!'}
-                  </div>
-                  <div className="speech-bubble__content">
-                    Hashed Potato Club is an exclusive social club for Hashed<br></br>
-                    portfolio founders & partners. It aims to build a strong bond<br></br>
-                    between the participants nd ultimately create virtuous<br></br>
-                    synergies.
-                  </div>
-                </div>  
-              </div>
-              <div className="main-view__wrapper--2__hashed-speech-bubble--right-wrapper">
-                <div ref={bubbleRightRef} className={`speech-bubble--right ${bubbleRightEntry?.isIntersecting ? 'in-viewport' : ''}`}>
-                    <img src={speechBubbleRight} className="speech-bubble-right" />
-                    <div className="speech-bubble__title">
-                      <div className="speech-bubble__content__text">
-                        {'Let’s make\nthings happen'}
-                      </div>
-                    </div>
-                    <div className="speech-bubble__content">
-                      <div className="speech-bubble__content__text">
-                        Get to know Hashed's partners through various events<br></br>
-                        and create positive synergy at the Hashed Potato Club!
-                      </div>
-                    </div>
+          <div className="main-view__wrapper--2__hashed-speech-bubble--right-wrapper">
+            <div ref={bubbleRightRef} className={`speech-bubble--right ${bubbleRightEntry?.isIntersecting ? 'in-viewport' : ''}`}>
+              <img src={speechBubbleRight} className="speech-bubble-right" />
+              <div className="speech-bubble__title">
+                <div className="speech-bubble__content__text">
+                  {'Let’s make\nthings happen'}
                 </div>
-                <img src={hashedHat} className="hashed-hat" />
-                <img src={spikeOrange} className="spike orange" />
-                <img src={spikeYellow} className="spike yellow" />
               </div>
-              <div className="events__header">
-                <div className="events__header__title page-title">Upcoming Events</div>
-                <SeeAllEventsButton />
-              </div>
-              <div className="events__content">
-                {events.slice(0, 3).map(({ id, image, title, description}) => (
-                  <EventCard
-                    key={id}
-                    eventId={id}
-                    image={image}
-                    title={title}
-                    description={description}
-                  />
-                ))}
+              <div className="speech-bubble__content">
+                <div className="speech-bubble__content__text">
+                  Get to know Hashed's partners through various events<br></br>
+                  and create positive synergy at the Hashed Potato Club!
+                </div>
               </div>
             </div>
+            <img src={hashedHat} className="hashed-hat" />
+            <img src={spikeOrange} className="spike orange" />
+            <img src={spikeYellow} className="spike yellow" />
           </div>
-      </StyledMainView>
-    )
-  }
+          <div className="events__header">
+            <div className="events__header__title page-title">Upcoming Events</div>
+            <SeeAllEventsButton />
+          </div>
+          <div className="events__content">
+            {events.slice(0, 3).map(({ id, image, title, description }) => (
+              <EventCard
+                key={id}
+                eventId={id}
+                image={image}
+                title={title}
+                description={description}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </StyledMainView>
+  )
+}
 
-  const StyledMainView = styled.div`
+const StyledMainView = styled.div`
     .main-view__wrapper {
       &--1 {
         background-color: #FFF7DA;
@@ -750,6 +750,5 @@ function MainView () {
     }
     }
   `
-  
-  export default MainView
-  
+
+export default MainView

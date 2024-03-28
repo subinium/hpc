@@ -9,8 +9,8 @@ const Footer: FC = () => (
     <StyledFooter className="footer">
         <div className="container">
             <div className="footer__img">
-                <img src={logoReversed} className="logo"/>
-                <img src={discordWhite} className="discord"/>
+                <img src={logoReversed} className="logo" />
+                {/* <img src={discordWhite} className="discord"/> */}
             </div>
             <div className="footer__contact">
                 20F, 374, Gangnam-daero Gangnam-gu,<br></br>
@@ -24,7 +24,7 @@ const Footer: FC = () => (
         </div>
         <div className="footer__icon">
             <img src={indexFinger} />
-            <img src={circularText} className="text"/>
+            <img src={circularText} className="text" />
         </div>
     </StyledFooter>
 )

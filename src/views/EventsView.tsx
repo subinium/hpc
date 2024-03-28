@@ -5,38 +5,38 @@ import Pagination from '../components/Pagination'
 import events from '../assets/variable/events'
 import { useState } from 'react'
 
-function EventsView () {
+function EventsView() {
 
-  const [currFilter, setCurrFilter] = useState('In progress')  
-    const [currPage, setCurrPage] = useState(0)
+  const [currFilter, setCurrFilter] = useState('In progress')
+  const [currPage, setCurrPage] = useState(0)
 
-    return (
-      <StyledEventsView>
-        <div className="container">
-          <div className="page-title">Events</div>
-          <div className="events-view__subtitle-filter-wrapper">
-            <div className="events-view__subtitle">30 Events in progress</div>
-            <EventFilter 
-              currFilter={currFilter}
-              setCurrFilter={setCurrFilter}
-            />
-          </div>
-          <div className="events-view__events">
-                {events.map(({ id, image, title, description}) => (
-                  <EventCard 
-                    vertical
-                    eventId={id}
-                    image={image}
-                    title={title}
-                    description={description}
-                  />
-                ))}
-          </div>
-          <Pagination currPage={currPage} setCurrPage={setCurrPage} />
+  return (
+    <StyledEventsView>
+      <div className="container">
+        <div className="page-title">Events</div>
+        <div className="events-view__subtitle-filter-wrapper">
+          {/* <div className="events-view__subtitle">30 Events in progress</div>
+          <EventFilter
+            currFilter={currFilter}
+            setCurrFilter={setCurrFilter}
+          /> */}
         </div>
-      </StyledEventsView>
-    )
-  }
+        <div className="events-view__events">
+          {events.map(({ id, image, title, description }) => (
+            <EventCard
+              vertical
+              eventId={id}
+              image={image}
+              title={title}
+              description={description}
+            />
+          ))}
+        </div>
+        <Pagination currPage={currPage} setCurrPage={setCurrPage} />
+      </div>
+    </StyledEventsView>
+  )
+}
 
 const StyledEventsView = styled.div`
   display: flex;
@@ -180,6 +180,5 @@ const StyledEventsView = styled.div`
   }
   
 `
-  
+
 export default EventsView
-  
