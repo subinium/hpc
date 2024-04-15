@@ -8,6 +8,7 @@ import logo from '../assets/icon/logo.svg'
 import logoMobile from '../assets/icon/logo_mobile.svg'
 // import discord from '../assets/icon/discord.svg'
 import medium from '../assets/icon/medium.svg'
+import googleForm from '../assets/icon/google-forms.svg'
 import hashed from '../assets/gif/hashed.gif'
 import shoestring from '../assets/gif/shoestring.gif'
 import speechBubbleUp from '../assets/icon/speech_bubble_up.svg'
@@ -60,7 +61,7 @@ function MainView() {
           <img src={logoMobile} className="logo mobile" />
           <div className="hashed-discord-shoestring-wrapper">
             <div ref={discordSpeechBubbleRef} className={`discord-speech-bubble-wrapper ${discordSpeechBubbleEntry?.isIntersecting ? 'in-viewport' : ''}`}>
-              <img src={medium} className="discord" />
+              <img src={googleForm} className="discord" />
               <img src={speechBubbleUp} className="speech-bubble-up" />
               <img src={speechBubbleDown} className="speech-bubble-down" />
               <div className="discord-speech-bubble-wrapper__text">
