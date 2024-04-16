@@ -52,7 +52,7 @@ const Header: FC = () => {
                             )
                         )}
                     </div>
-                    <div className="header__mobile-menu__menu login">
+                    {/* <div className="header__mobile-menu__menu login">
                         <a 
                             href={menus[3].path}
                             className={window.location.pathname === menus[3].path ? 'curr-menu' : ''}
@@ -60,7 +60,7 @@ const Header: FC = () => {
                         >
                             {menus[3].label}
                         </a>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         }
@@ -215,11 +215,11 @@ const menus = [
     {
         path: '/about',
         label: 'About',
+    },
+    {
+        path: '/login',
+        label: 'Login',
     }
-    // {
-    //     path: '/login',
-    //     label: 'Login',
-    // }
 ]
 
 export default Header
