@@ -53,10 +53,10 @@ const EventDetailView: FC = () => {
                                 <div className="event-detail-view__selected-event__rsvp__description">
                                     <div className="event-detail-view__selected-event__rsvp__description__date">
                                         <img src={calendar} />
-                                        <Calendar
+                                        {/* <Calendar
                                             month='9'
                                             date='05'
-                                        />
+                                        /> */}
                                         <div>{selectedEvent.start_date} ~ {selectedEvent.end_date}</div>
                                     </div>
                                     <div className="event-detail-view__selected-event__rsvp__description__note">
@@ -216,7 +216,11 @@ const StyledEventDetailView = styled.div`
             
             &__image {
                 overflow: hidden;
-                height: 60rem;
+                // object-fit: cover;
+                // height: 18rem;
+                img {
+                    width: 100%;
+                }
             }
 
             &__rsvp {
