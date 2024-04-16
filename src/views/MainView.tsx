@@ -113,7 +113,7 @@ function MainView() {
             </div>
             <img src={hashedHat} className="hashed-hat" />
             <img src={spikeOrange} className="spike orange" />
-            <img src={spikeYellow} className="spike yellow" />
+            {/* <img src={spikeYellow} className="spike yellow" /> */}
           </div>
           <div className="events__header">
             <div className="events__header__title page-title">Upcoming Events</div>

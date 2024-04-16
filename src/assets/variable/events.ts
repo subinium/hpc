@@ -35,8 +35,8 @@ const events: Event[] = [
   {
     id: 1,
     image: everyworld_dubai,
-    title: 'Everyworld & Hashed VIP Beach Club Cocktail Party at Token2049 Dubai',
-    description: '',
+    title: 'Everyworld & Hashed VIP Beach Club Cocktail Party',
+    description: 'Everyworld, Hashed',
     location: 'Invite Only',
     detail: `​Please join us for a VIP Event at Token2049 Dubai to celebrate the launch of Everyworld.
 
@@ -57,7 +57,7 @@ const events: Event[] = [
     id: 2,
     image: morningstar_dubai,
     title: 'VCs Night with Hashed & Morningstar Ventures',
-    description: '37xDubai',
+    description: 'Hashed, Morning Star Ventures',
     location: 'Invite Only',
     detail: `Join us at 37xDubai for our VCs Night with Hashed and Morningstar Ventures.
 
@@ -79,7 +79,7 @@ const events: Event[] = [
     id: 3,
     image: seabw,
     title: 'SOUTHEAST ASIA BLOCKCHAIN WEEK',
-    description: '',
+    description: 'SCB X, ShardLab, Hashed',
     location: 'True Icon Hall, Bangkok, Thailand',
     detail: `Southeast Asia Blockchain Week is a premier conference dedicated to exploring the evolving landscape of Web3 technology in one of the world's most dynamic and rapidly growing regions. 
 
@@ -94,7 +94,7 @@ const events: Event[] = [
     id: 4,
     image: cryptoconnect_seabw,
     title: 'CryptoConnect',
-    description: '',
+    description: 'Aptos, Cryptomind, hashed, Shardlab',
     location: 'Osca & Blanco',
     detail: `Are you attending SEABW? We have a happy hour just for you! We're gathering at Osca & Blanco on April 23 from 5:00-8:00 pm.
 
@@ -112,7 +112,7 @@ const events: Event[] = [
     id: 5,
     image: zkonnect_seabw,
     title: 'ZKonnect Summit 2024',
-    description: '',
+    description: 'SCB 10X, SCBX, Polygon Labs, Mozak',
     location: 'FYI Center',
     detail: `ZKonnect Summit 2024: Unveiling Future Scalability with Zero Knowledge - A Zero Knowledge Summit Co-hosted by Polygon Labs, SCB 10X & SCBX
 
