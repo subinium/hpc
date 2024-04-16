@@ -61,9 +61,13 @@ function MainView() {
           <img src={logoMobile} className="logo mobile" />
           <div className="hashed-discord-shoestring-wrapper">
             <div ref={discordSpeechBubbleRef} className={`discord-speech-bubble-wrapper ${discordSpeechBubbleEntry?.isIntersecting ? 'in-viewport' : ''}`}>
-              <a href="https://docs.google.com/forms/d/1YQ26P9Vc7KKloD8ARdX_6k43aTm4iqRchyOTLmGi8PA/viewform" target="_blank">
-              <img src={googleForm} className="discord" />
-              </a>
+              
+              <div className="discord">
+                <a href="https://docs.google.com/forms/d/1YQ26P9Vc7KKloD8ARdX_6k43aTm4iqRchyOTLmGi8PA/viewform" target="_blank">
+                <img src={googleForm} />
+                </a>
+              </div>
+              <img src={googleForm} className='blob'></img>
               <img src={speechBubbleUp} className="speech-bubble-up" />
               <img src={speechBubbleDown} className="speech-bubble-down" />
               <div className="discord-speech-bubble-wrapper__text">
@@ -144,7 +148,28 @@ const StyledMainView = styled.div`
         display: flex;
         justify-content: center;
         position: relative;
+        
+        .discord {
+          position: absolute;
+          width: 10rem;
+          height: 10rem;
+          // background-color: black;
+          // border-radius: 100%;
+          overflow: hidden;
+          z-index: 2;
+          a {
+            img {
+              width: 10rem;
+              background-color: ${props => props.theme.yellowLight};
 
+              // &:hover {
+              //   animation: rotate 0.4s linear; // infinite;
+              // }
+            }
+          }
+        
+          
+        }
         img {
           &.star {
             position: absolute;
@@ -217,16 +242,17 @@ const StyledMainView = styled.div`
             height: 37.6rem;
           }
 
-          &.discord {
+          &.blob {
             width: 10rem;
             height: 10rem;
-            border-radius: 100%;
-            background-color: ${props => props.theme.yellowLight};
-            z-index: 2;
+            transparent: 0%;
+            // border-radius: 100%;
+            // background-color: ${props => props.theme.yellowLight};
+            // z-index: 2;
 
-            &:hover {
-              animation: rotate 0.4s linear; // infinite;
-            }
+            // &:hover {
+            //   animation: rotate 0.4s linear; // infinite;
+            // }
           }
 
           &.speech-bubble-up {
@@ -476,7 +502,16 @@ const StyledMainView = styled.div`
       .main-view__wrapper {
         &--1 {
           height: 53rem;
-
+          .discord  {
+            width: 5.6rem;
+            height: 5.6rem;
+            a{
+              img{
+                width:5.6rem;
+                height: 5.6rem;
+              }
+            }
+          }
           img {
             &.star {
               width: 2.4rem;
@@ -520,7 +555,7 @@ const StyledMainView = styled.div`
               margin-left: -1rem
             }
 
-            &.discord {
+            &.blob {
               width: 5.6rem;
               height: 5.6rem;
             }
