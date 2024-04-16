@@ -61,12 +61,15 @@ function MainView() {
           <img src={logoMobile} className="logo mobile" />
           <div className="hashed-discord-shoestring-wrapper">
             <div ref={discordSpeechBubbleRef} className={`discord-speech-bubble-wrapper ${discordSpeechBubbleEntry?.isIntersecting ? 'in-viewport' : ''}`}>
+              <a href="https://docs.google.com/forms/d/1YQ26P9Vc7KKloD8ARdX_6k43aTm4iqRchyOTLmGi8PA/viewform" target="_blank">
               <img src={googleForm} className="discord" />
+              </a>
               <img src={speechBubbleUp} className="speech-bubble-up" />
               <img src={speechBubbleDown} className="speech-bubble-down" />
               <div className="discord-speech-bubble-wrapper__text">
-                Explore Hashed's Medium channel <br></br>
-                for a variety of Thesis & Research<br></br>
+              Please send us your request <br></br>
+              to join the community with <br></br>
+              the form above!
               </div>
             </div>
             <div className="hashed-shoestring">

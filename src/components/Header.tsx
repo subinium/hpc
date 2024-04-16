@@ -41,7 +41,7 @@ const Header: FC = () => {
             <div className="header__mobile-menu">
                 <div className="container">
                     <div className="header__mobile-menu__menu">
-                        {menus.slice(0, 3).map(menu => (
+                        {menus.map(menu => (
                                 <a 
                                     href={menu.path}
                                     className={window.location.pathname === menu.path ? 'curr-menu' : ''}
@@ -215,11 +215,11 @@ const menus = [
     {
         path: '/about',
         label: 'About',
-    },
-    {
-        path: '/login',
-        label: 'Login',
     }
+    // {
+    //     path: '/login',
+    //     label: 'Login',
+    // }
 ]
 
 export default Header
