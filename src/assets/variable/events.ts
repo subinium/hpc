@@ -1,6 +1,6 @@
-import seabw from '../img/seabw.jpeg'
-import everyworld_dubai from '../img/Everyworld & Hashed VIP Beach Club Cocktail Party at Token2049 Dubai.png'
-import morningstar_dubai from '../img/Morning Star Ventures .png'
+import seabw from '../img/SEABW.png'
+import everyworld_dubai from '../img/VIP cocktail Party.png'
+import morningstar_dubai from '../img/VCs night.png'
 import cryptoconnect_seabw from '../img/CryptoConnect.png'
 import zkonnect_seabw from '../img/ZKonnect Summit 2024.png'
 
